@@ -49,6 +49,11 @@ public class Location {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
+	@Override
+	public String toString() {
+		return "Location [address1=" + address1 + "]";
+	}
+	
 	
 	
 }
