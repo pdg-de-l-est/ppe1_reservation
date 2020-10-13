@@ -1,0 +1,89 @@
+{{> header}}
+
+
+<template>
+  <v-container fluid>
+     <v-autocomplete
+  		clearable
+  		dense
+  		label="Localisation"
+  		filled
+  		rounded
+  		solo
+></v-autocomplete>
+      <template>
+  <div>
+    <v-sheet
+      tile
+      height="54"
+      class="d-flex"
+    >
+      <v-btn
+        icon
+        class="ma-2"
+        @click="$refs.calendar.prev()"
+      >
+        <v-icon>mdi-chevron-left</v-icon>
+      </v-btn>
+      <v-select
+        v-model="type"
+        :items="types"
+        dense
+        hide-details
+        class="ma-2"
+        label="Type de véhicule"
+        filled
+  		rounded
+  		solo
+      ></v-select>
+      <v-select
+        v-model="mode"
+        :items="modes"
+        dense
+        hide-details
+        label="Date de location"
+        class="ma-2"
+        filled
+  		rounded
+  		solo
+      ></v-select>
+      <v-select
+        v-model="weekday"
+        :items="weekdays"
+        dense
+        hide-details
+        label="Durée de location"
+        class="ma-2"
+        filled
+  		rounded
+  		solo
+      ></v-select>
+      <v-spacer></v-spacer>
+      <v-btn
+        icon
+        class="ma-2"
+        @click="$refs.calendar.next()"
+      >
+        <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+    </v-sheet>
+    <v-sheet height="600">
+      <v-calendar
+        ref="calendar"
+        v-model="value"
+        :weekdays="weekday"
+        :type="type"
+        :events="events"
+        :event-overlap-mode="mode"
+        :event-overlap-threshold="30"
+        :event-color="getEventColor"
+        @change="getEvents"
+      ></v-calendar>
+    </v-sheet>
+  </div>
+</template>
+     
+  </v-container>
+</template>
+{{>footer}}
+{{{vue}}}
