@@ -33,6 +33,13 @@ public class Reservation {
 	private int price;
 	private Date startDate;
 	private Date endDate;
+	
+	public Reservation(int price, Date startDate, Date endDate) {
+		this.price=price;
+		this.startDate=startDate;
+		this.endDate=endDate;
+	}
+	
 	public int getId() {
 		return id;
 	}
