@@ -33,6 +33,15 @@ public class Type {
 	public void setLibelle(String libelle) {
 		this.libelle = libelle;
 	}
+
+	public Caracteristic getCaracteristic() {
+		return caracteristic;
+	}
+
+	public void setCaracteristic(Caracteristic caracteristic) {
+		this.caracteristic = caracteristic;
+	}
+	
 	
 	
 }

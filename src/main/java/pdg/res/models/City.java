@@ -18,6 +18,7 @@ public class City {
 	@ManyToOne
 	private Location location;
 	
+	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
@@ -43,6 +44,17 @@ public class City {
 		this.name = name;
 	}
 	
-	
+	public List<State> getStates() {
+		return states;
+	}
+	public void setStates(List<State> states) {
+		this.states = states;
+	}
+	public Location getLocation() {
+		return location;
+	}
+	public void setLocation(Location location) {
+		this.location = location;
+	}
 
 }
