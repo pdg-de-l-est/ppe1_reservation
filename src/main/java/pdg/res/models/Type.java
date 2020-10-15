@@ -1,16 +1,18 @@
 package pdg.res.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Type {
 	
-	@ManyToOne
-	private Caracteristic caracteristic;
+	@OneToMany
+	private List<Caracteristic> caracteristics;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -34,14 +36,12 @@ public class Type {
 		this.libelle = libelle;
 	}
 
-	public Caracteristic getCaracteristic() {
-		return caracteristic;
+	public List<Caracteristic> getCaracteristics() {
+		return caracteristics;
 	}
 
-	public void setCaracteristic(Caracteristic caracteristic) {
-		this.caracteristic = caracteristic;
+	public void setCaracteristics(List<Caracteristic> caracteristics) {
+		this.caracteristics = caracteristics;
 	}
-	
-	
 	
 }

@@ -17,13 +17,13 @@ public class Product {
 	private Photo photo;
 	
 	@OneToMany
-	private Reservation reservation;
+	private List<Reservation> reservations;
 	
 	@ManyToMany
 	private List<Caracteristic> caracteristics;
 	
-	@OneToMany
-	private List<User> users;
+	@ManyToOne
+	private User user;
 	
 	@OneToMany
 	private List<Location> locations;
@@ -72,11 +72,12 @@ public class Product {
 	public void setPhoto(Photo photo) {
 		this.photo = photo;
 	}
-	public Reservation getReservation() {
-		return reservation;
+	
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 	public List<Caracteristic> getCaracteristics() {
 		return caracteristics;
@@ -84,11 +85,12 @@ public class Product {
 	public void setCaracteristics(List<Caracteristic> caracteristics) {
 		this.caracteristics = caracteristics;
 	}
-	public List<User> getUsers() {
-		return users;
+	
+	public User getUser() {
+		return user;
 	}
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 	public List<Location> getLocations() {
 		return locations;
@@ -96,7 +98,4 @@ public class Product {
 	public void setLocations(List<Location> locations) {
 		this.locations = locations;
 	}
-	
-	
-
 }

@@ -7,13 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Caracteristic {
 	
-	@OneToMany
-	private List<Type> types;
+	@ManyToOne
+	private Type type;
 	
 	@ManyToMany
 	private List<Product> products;
@@ -42,12 +42,12 @@ public class Caracteristic {
 		this.label = label;
 	}
 	
-	public List<Type> getTypes() {
-		return types;
+	public Type getType() {
+		return type;
 	}
 
-	public void setTypes(List<Type> types) {
-		this.types = types;
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 	public List<Product> getProducts() {

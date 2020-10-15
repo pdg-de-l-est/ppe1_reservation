@@ -1,19 +1,21 @@
 package pdg.res.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class User {
 	
-	@ManyToOne
-	private Product product;
+	@OneToMany
+	private List<Product> products;
 	
-	@ManyToOne
-	private Reservation reservation;
+	@OneToMany
+	private List<Reservation> reservations;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -54,18 +56,19 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Product getProduct() {
-		return product;
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
-	public Reservation getReservation() {
-		return reservation;
+	public List<Reservation> getReservations() {
+		return reservations;
 	}
-	public void setReservation(Reservation reservation) {
-		this.reservation = reservation;
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
 	}
+	
     
     
 	

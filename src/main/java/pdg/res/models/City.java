@@ -12,11 +12,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class City {
 	
-	@OneToMany
-	private List<State> states;
-	
 	@ManyToOne
-	private Location location;
+	private State state;
+	
+	@OneToMany
+	private List<Location> locations;
 	
 	
 	@Id
@@ -43,18 +43,16 @@ public class City {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public List<State> getStates() {
-		return states;
+	public List<Location> getLocations() {
+		return locations;
 	}
-	public void setStates(List<State> states) {
-		this.states = states;
+	public void setLocations(List<Location> locations) {
+		this.locations = locations;
+}
+	public State getState() {
+		return state;
 	}
-	public Location getLocation() {
-		return location;
+	public void setState(State state) {
+		this.state = state;
 	}
-	public void setLocation(Location location) {
-		this.location = location;
-	}
-
 }

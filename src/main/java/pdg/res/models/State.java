@@ -1,16 +1,18 @@
 package pdg.res.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class State {
 	
-	@ManyToOne
-	private State state;
+	@OneToMany
+	private List<City> citys;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -34,14 +36,11 @@ public class State {
 		this.name = name;
 	}
 
-	public State getState() {
-		return state;
+	public List<City> getCitys() {
+		return citys;
 	}
 
-	public void setState(State state) {
-		this.state = state;
-	}
-	
-	
-	
+	public void setCitys(List<City> citys) {
+		this.citys = citys;
+	}	
 }

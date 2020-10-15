@@ -1,5 +1,6 @@
 package pdg.res.models;
 
+
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,11 +13,11 @@ import javax.persistence.OneToMany;
 @Entity
 public class Location {
 	
-	@OneToMany
-	private List<City> citys;
-	
 	@ManyToOne
-	private Product product;
+	private City city;
+	
+	@OneToMany
+	private List<Product> products;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -49,18 +50,17 @@ public class Location {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
-		
-	public List<City> getCitys() {
-		return citys;
+	public City getCity() {
+		return city;
 	}
-	public void setCitys(List<City> citys) {
-		this.citys = citys;
+	public void setCity(City city) {
+		this.city = city;
 	}
-	public Product getProduct() {
-		return product;
+	public List<Product> getProducts() {
+		return products;
 	}
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 	@Override
 	public String toString() {

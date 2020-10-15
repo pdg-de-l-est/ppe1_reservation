@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 @Entity
 public class Reservation {
@@ -16,11 +15,11 @@ public class Reservation {
 	@ManyToMany
 	private List<Service> services;
 	
-	@OneToMany
-	private List<User> users;
+	@ManyToOne
+	private User user;
 	
 	@ManyToOne
-	private List<Product> products;
+	private Product product;
 	
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -69,21 +68,23 @@ public class Reservation {
 		this.services = services;
 	}
 
-	public List<User> getUsers() {
-		return users;
+	public User getUser() {
+	return user;
+}
+
+public void setUser(User user) {
+	this.user = user;
+}
+
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
-	public List<Product> getProducts() {
-		return products;
-	}
-
-	public void setProducts(List<Product> products) {
-		this.products = products;
-	}
+	
 	
 	
 	
