@@ -15,7 +15,7 @@ import pdg.res.repositories.ReservationRepository;
 import io.github.jeemv.springboot.vuejs.VueJS;
 
 @Controller
-public class TestController {
+public class ReservationController {
 	
 	@Autowired
 	private VueJS vue;
