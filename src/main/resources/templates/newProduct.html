@@ -1,66 +1,58 @@
 {{> header}}
-
-<v-dialog v-model="dialog" width="500">
-<template v-slot:activator="{ on, attrs }">
-      	<v-btn icon v-bind="attrs" v-on="on" v-on:click="isNew = true;orga={};"> <v-icon>mdi-domain-plus</v-icon></v-btn>
-      </template>
+<form method="post" action="/new/product">
   <v-container fluid>
-     <v-autocomplete
-  		clearable
+     <v-text-field
   		dense
   		label="Titre"
   		filled
   		rounded
   		solo
   		required
-  		v-model="Product.title"
+  		name="title"
   		>
-  </v-autocomplete>
+  </v-text-field>
 </v-container>
   <v-container fluid>
-     <v-autocomplete
-  		clearable
+     <v-text-field
   		dense
   		label="Type"
   		filled
   		rounded
   		solo
   		required
-  		v-model="Product.type"
+  		name="type"
   		>
-  </v-autocomplete>
+  </v-text-field>
 </v-container>
   <v-container fluid>
-     <v-autocomplete
-  		clearable
+     <v-text-field
   		dense
   		label="Description"
   		filled
   		rounded
   		solo
   		required
-  		v-model="Product.description"
+  		name="description"
   		>
-  </v-autocomplete>
+  </v-text-field>
 </v-container>
   <v-container fluid>
-     <v-autocomplete
-  		clearable
+     <v-text-field
   		dense
   		label="Prix/Heure"
   		filled
   		rounded
   		solo
   		required
-  		v-model="Product.price"
+  		name="price"
   		>
-  </v-autocomplete>
+  </v-text-field>
 </v-container>
-<v-card-actions>
-          <v-btn v-if="!isNew" color="green" @click="updateProduct">Modifier</v-btn>
-          <v-btn v-if="isNew" color="blue" @click="newProduct">Ajouter</v-btn>
+	<v-card-actions>
+          <v-btn color="green" >Modifier</v-btn>
+          <v-btn color="blue" type="submit">Ajouter</v-btn>
           <v-btn>Annuler</v-btn>
-        </v-card-actions>
-</v-dialog>
+    </v-card-actions>
+</form>
 {{> footer}}
 {{{vue}}}
