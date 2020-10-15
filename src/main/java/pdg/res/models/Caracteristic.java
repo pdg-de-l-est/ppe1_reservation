@@ -18,6 +18,8 @@ public class Caracteristic {
 	@ManyToMany
 	private List<Product> products;
 	
+	
+
 	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
@@ -40,5 +42,19 @@ public class Caracteristic {
 		this.label = label;
 	}
 	
-	
+	public List<Type> getTypes() {
+		return types;
+	}
+
+	public void setTypes(List<Type> types) {
+		this.types = types;
+	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 }

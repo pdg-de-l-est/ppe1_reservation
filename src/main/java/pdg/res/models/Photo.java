@@ -35,6 +35,14 @@ public class Photo {
 	public void setLink(String link) {
 		this.link = link;
 	}
+
+	public List<Product> getProducts() {
+		return products;
+	}
+
+	public void setProducts(List<Product> products) {
+		this.products = products;
+	}
 	
 	
 }

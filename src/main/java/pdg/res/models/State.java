@@ -33,6 +33,15 @@ public class State {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+	
 	
 	
 }

@@ -49,6 +49,19 @@ public class Location {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
+		
+	public List<City> getCitys() {
+		return citys;
+	}
+	public void setCitys(List<City> citys) {
+		this.citys = citys;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	@Override
 	public String toString() {
 		return "Location [address1=" + address1 + "]";

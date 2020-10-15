@@ -54,6 +54,19 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	public Reservation getReservation() {
+		return reservation;
+	}
+	public void setReservation(Reservation reservation) {
+		this.reservation = reservation;
+	}
     
     
+	
 }
