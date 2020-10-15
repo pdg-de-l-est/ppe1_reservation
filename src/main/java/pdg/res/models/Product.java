@@ -16,7 +16,7 @@ public class Product {
 	@ManyToOne
 	private Photo photo;
 	
-	@ManyToOne
+	@OneToMany
 	private Reservation reservation;
 	
 	@ManyToMany
