@@ -30,7 +30,7 @@ public class ReservationController {
 	
         @RequestMapping("/reser")
     	public String test(ModelMap model) throws Exception {
-    		String startDate="23/08/2002-07:30";
+    		String startDate="23/08/2002-11:30";
     		String endDate="05/09/2002-18:00";
     		Date tStartDate=new SimpleDateFormat("dd/MM/yyyy-hh:mm").parse(startDate);
     		Date tEndDate=new SimpleDateFormat("dd/MM/yyyy-hh:mm").parse(endDate);
