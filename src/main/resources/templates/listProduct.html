@@ -1,0 +1,11 @@
+{{> header}}
+{{#products}}
+{{title}}
+<form method="post" action="/product/{{id}}">
+    <v-btn color="primary" type="submit">
+      Plus d'informations
+    </v-btn><br>
+</form>
+{{/products}}
+{{> footer}}
+{{{vue}}}
