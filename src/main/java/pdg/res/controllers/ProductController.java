@@ -49,11 +49,10 @@ public class ProductController {
 		return "newProduct";
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/testMap")
 	public String testMap(ModelMap model) {
 		return "testMap";
-=======
+	}
 	@RequestMapping("/prod")
 	public String liste(ModelMap model) {
 		List<Product> prod=prodrepo.findAll();
@@ -69,6 +68,5 @@ public class ProductController {
 			return "productById";
 		}
 		return "Produit non trouvé";
->>>>>>> c18ef1520802b22631bc6089c5c9c852dc489736
 	}
 }
