@@ -45,5 +45,8 @@ public class ProductController {
 		return "newProduct";
 	}
 	
-	
+	@RequestMapping("/testMap")
+	public String testMap(ModelMap model) {
+		return "testMap";
+	}
 }
