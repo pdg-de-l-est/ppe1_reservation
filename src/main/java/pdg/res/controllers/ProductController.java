@@ -50,16 +50,6 @@ public class ProductController {
 		return "newProduct";
 	}
 	
-	@RequestMapping("/testMap")
-	public String testMap(ModelMap model) {
-		return "testMap";
-	}
-	
-	@RequestMapping("/testMap2")
-	public String testMap2(ModelMap model) {
-		return "testMap2";
-	}
-	
 	@RequestMapping("/prod")
 	public String liste(ModelMap model) {
 		List<Product> prod=prodrepo.findAll();
