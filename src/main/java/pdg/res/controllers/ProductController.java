@@ -64,6 +64,19 @@ public class ProductController {
 		return "productById";
 	}
 	
+	@RequestMapping("/reserch")
+	public String recherche(ModelMap model) {
+		vue.addDataRaw("items","['Breaks','Monospaces','Citadines','Coupés','Cabriolets','Pickups','Crossovers','Utilitaires',]");
+		return "reserchProduct";
+	}
+	
+	@RequestMapping("/product/reserch")
+	public String rechercheProd(ModelMap model, @RequestParam String type) {
+		List<Product> prod=prodrepo.findByType(type);
+		model.put("products", prod);
+		return "listProduct";
+	}
+	
 	@RequestMapping("/gestion")
 	public String gerer(ModelMap model) {
 		List<Product> prod=prodrepo.findAll();

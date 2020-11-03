@@ -1,0 +1,25 @@
+{{> header}}
+<form method="post" action="/product/reserch">
+<template>
+  <v-container fluid>
+    <v-row>
+      <v-col cols="12">
+        <v-combobox
+        value="type"
+        name="type"
+          v-model="select"
+          :items="items"
+          label="Type"
+          outlined
+          dense
+        ></v-combobox>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+    <v-btn color="primary" type="submit">
+      Plus d'informations
+    </v-btn><br>
+</form>
+{{> footer}}
+{{{vue}}}
