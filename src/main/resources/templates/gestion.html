@@ -1,4 +1,19 @@
 {{> header}}
 
-{{>footer}}
+{{#products}}
+<ul>
+	{{title}}
+	{{type}}
+	{{description}}
+	{{price}}
+	<v-btn elevation="1" icon v-on:click="editProduct(product)">
+		<v-icon color="green lighten-1">mdi-tooltip-edit-outline</v-icon>
+	</v-btn>
+	<v-btn elevation="1" icon v-on:click="deleteProduct(product)">
+		<v-icon color="red lighten-1">mdi-bookmark-remove-outline</v-icon>
+	</v-btn>
+</ul>
+{{/products}}
+
+{{> footer}}
 {{{vue}}}
