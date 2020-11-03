@@ -1,19 +1,19 @@
 {{> header}}
 
-{{#products}}
 <ul>
-	{{title}}
+<template v-for="prod in products">
+	<%title%>
 	{{type}}
 	{{description}}
 	{{price}}
-	<v-btn elevation="1" icon v-on:click="editProduct(product)">
+	<v-btn elevation="1" icon v-on:click="editProduct(prod)">
 		<v-icon color="green lighten-1">mdi-tooltip-edit-outline</v-icon>
 	</v-btn>
-	<v-btn elevation="1" icon v-on:click="deleteProduct(product)">
+	<v-btn elevation="1" icon v-on:click="deleteProduct(products,prod)">
 		<v-icon color="red lighten-1">mdi-bookmark-remove-outline</v-icon>
 	</v-btn>
+
 </ul>
-{{/products}}
 
 {{> footer}}
 {{{vue}}}

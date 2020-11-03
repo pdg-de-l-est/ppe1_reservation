@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
 
 import io.github.jeemv.springboot.vuejs.VueJS;
+import io.github.jeemv.springboot.vuejs.utilities.JsArray;
 import pdg.res.models.Product;
 import pdg.res.repositories.ProductRepository;
 
@@ -70,11 +71,21 @@ public class ProductController {
 	@RequestMapping("/product/{id}")
 	public String info(ModelMap model,@PathVariable int id) {
 		Optional<Product> prod=prodrepo.findById(id);
-		if(prod.isPresent()) {
-			model.put("product", prod);
-			return "productById";
-		}
-		return "Produit non trouvé";
+		model.put("product", prod.get());
+		return "productById";
+	}
+	
+	@RequestMapping("/reserch")
+	public String recherche(ModelMap model) {
+		vue.addDataRaw("items","['Breaks','Monospaces','Citadines','Coupés','Cabriolets','Pickups','Crossovers','Utilitaires',]");
+		return "reserchProduct";
+	}
+	
+	@RequestMapping("/product/reserch")
+	public String rechercheProd(ModelMap model, @RequestParam String type) {
+		List<Product> prod=prodrepo.findByType(type);
+		model.put("products", prod);
+		return "listProduct";
 	}
 	
 	@RequestMapping("/gestion")
