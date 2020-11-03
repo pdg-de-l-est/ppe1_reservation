@@ -1,11 +1,32 @@
 {{> header}}
+<template>
+  <v-simple-table dark>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">
+            Nom
+          </th>
+          <th class="text-left">
+            
+          </th>
+        </tr>
+      </thead>
 {{#products}}
-{{title}}
-<form method="post" action="/product/{{id}}">
+ <tbody>
+        <tr>
+          <td>{{title}}</td>
+          <td>
+          <form method="post" action="/product/{{id}}">
     <v-btn color="primary" type="submit">
       Plus d'informations
     </v-btn><br>
-</form>
+</form></td>
+        </tr>
+      </tbody>
 {{/products}}
+</template>
+  </v-simple-table>
+</template>
 {{> footer}}
 {{{vue}}}
