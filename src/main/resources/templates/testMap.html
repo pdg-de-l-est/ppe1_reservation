@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>OpenStreetMap API</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css">
+        <link rel="shrotcut icon" type="image/png" href="https://elise-felicie.fr/wp-content/themes/elise-et-felicie/img/icon-page-location.png">
+        
+        <!-- Style CSS-->
+        <style>
+            #macarte{
+                height:900px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="macarte"></div>
+
+        <!-- Fichiers JavaScript -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+        <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+        <script>
+            // Tableau de villes
+            var villes = {
+                "Paris":{"lat":48.852969,"lon":2.349903},
+                "Brest":{"lat":48.383,"lon":-4.500},
+                "Quimper":{"lat":48.000,"lon":-4.100},
+                "Bayonne":{"lat":43.500,"lon":-1.467}
+            };
+
+            var tableauMarqueurs = [];
+
+            // On initialise la carte
+            var carte = L.map('macarte').setView([48.852969, 2.349903], 15);
+
+            // On charge les tuiles
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                attribution: 'données <a href="//osm.org/copyright">OpenStreetMap</a>/0DbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
+                minZoom: 1,
+                maxZoom: 20
+            }).addTo(carte);
+
+            var marqueurs=L.markerClusterGroup();
+
+            // On parcours les différentes villes du tableau [villes]
+            for(ville in villes){
+            // On ajoute un marqueur + attribution d'une popup
+            var marqueur = L.marker([villes[ville].lat, villes[ville].lon]) //.addTo(carte); (Inutiles lors de l'utilisation de clusters)       // Coordonnées GPS entre les crochets
+            marqueur.bindPopup("<p>"+ville+"</p>") // Code HTML entre les parenthèses !
+            marqueurs.addLayer(marqueur); // On ajoute le marqueur au groupe
+
+            // On ajoute le marqueur dans le tableau
+            tableauMarqueurs.push(marqueur);
+            }
+            // On va regrouper les marqueurs dans un groupe Leaflet
+            var groupe= new L.featureGroup(tableauMarqueurs);
+
+            // On adapte le zoom au groupe
+            carte.fitBounds(groupe.getBounds());
+
+            carte.addLayer(marqueurs);
+        </script>
+    </body>
+</html>
