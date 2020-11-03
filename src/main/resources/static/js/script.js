@@ -27,7 +27,7 @@ window.onload=function(){
 			ville = [data[0].lat,data[0].lon]
 			
 			// On centre la carte sur la ville
-			carte.setView(ville,10)
+			carte.setView(ville,11)
 		})
 	})
 	
