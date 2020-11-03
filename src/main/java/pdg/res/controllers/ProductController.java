@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,6 +50,16 @@ public class ProductController {
 		return "newProduct";
 	}
 	
+	@RequestMapping("/testMap")
+	public String testMap(ModelMap model) {
+		return "testMap";
+	}
+	
+	@RequestMapping("/testMap2")
+	public String testMap2(ModelMap model) {
+		return "testMap2";
+	}
+	
 	@RequestMapping("/prod")
 	public String liste(ModelMap model) {
 		List<Product> prod=prodrepo.findAll();
@@ -65,4 +76,22 @@ public class ProductController {
 		}
 		return "Produit non trouvé";
 	}
+	
+	@RequestMapping("/gestion")
+	public String gerer(ModelMap model) {
+		List<Product> prod=prodrepo.findAll();
+		model.put("products", prod);
+		return "gestion";
+	}
+	
+	@DeleteMapping("/deleteProduct")
+	public RedirectView delProduct(@RequestParam String title) {
+		if(title!=null) {		
+			prodrepo.findByTitle(title);
+			prodrepo.flush();
+		}
+		return new RedirectView("/gestion");
+	}
+	
+	
 }
