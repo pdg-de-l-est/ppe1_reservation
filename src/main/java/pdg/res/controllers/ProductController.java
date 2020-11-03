@@ -59,10 +59,7 @@ public class ProductController {
 	@RequestMapping("/product/{id}")
 	public String info(ModelMap model,@PathVariable int id) {
 		Optional<Product> prod=prodrepo.findById(id);
-		if(prod.isPresent()) {
-			model.put("product", prod);
-			return "productById";
-		}
-		return "Produit non trouvé";
+		model.put("product", prod);
+		return "productById";
 	}
 }
