@@ -5,43 +5,29 @@
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>OpenStreetMap API</title>
-        
-        <!--  Fichiers CSS -->
-        
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   			integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   			crossorigin=""/>
-        <!-- <link rel="stylesheet" href="css/style.css"> -->
         <link rel="shrotcut icon" type="image/png" href="https://elise-felicie.fr/wp-content/themes/elise-et-felicie/img/icon-page-location.png">
-		<style>
-			#carte{
-				height: 80vh;
-				}
-		</style>
+	
+	<!-- Fichiers CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   		crossorigin=""/>
+   	<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<div id="carte"></div>
-		<!--  Fichiers JS -->
+		<div id="map"></div>
+		<p>
+			<label for="champ-ville">Ville :</label>
+			<input type="text" id="champ-ville">
+		</p>
+		<p>
+			<label for="champ-distance">Distance :</label>
+			<input type="range" min="1" max="30" id="champ-distance">
+		</p>
+		<p id="valeur-distance"></p>
+		<!-- Fichiers JS -->
 		<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    			integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    			crossorigin=""></script>
-  		<!-- <script type="js/scripts.js"></script> -->
-  		<script>
-  		var macarte = L.map("carte").setView([48.852969,2.349903],13)
-  		L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-  	                attribution: 'données © <a href="//osm.org/copyright">OpenStreetMap</a>/0DbL - rendu <a href="//openstreetmap.fr">OSM France</a>',
-  	                minZoom: 1,
-  	                maxZoom: 20
-  				}).addTo(macarte);
-  		</script>
+   		<script src="js/script.js"></script>
 	</body>
 </html>
-
-
-
-
-
-
-À voir : arborescnece qui ne fonctionne pas !!!!!!!
-
-https://www.youtube.com/watch?v=oInoG59h3oY
