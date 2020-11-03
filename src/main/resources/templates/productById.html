@@ -1,9 +1,35 @@
 {{> header}}
 {{#product}}
-	{{title}}<br>
-	{{type}}<br>
-	{{description}}<br>
-	{{price}}
+<template>
+  <v-simple-table>
+    <template v-slot:default>
+      <thead>
+        <tr>
+          <th class="text-left">
+            Nom
+          </th>
+          <th class="text-left">
+            Type
+          </th>
+           <th class="text-left">
+            Prix
+          </th>
+           <th class="text-left">
+            Description
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{title}}</td>
+          <td>{{type}}</td>
+          <td>{{price}}</td>
+          <td>{{description}}</td>
+        </tr>
+      </tbody>
+    </template>
+  </v-simple-table>
+</template>
 {{/product}}
 {{> footer}}
 {{{vue}}}
