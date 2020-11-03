@@ -70,7 +70,7 @@ public class ProductController {
 	@RequestMapping("/product/{id}")
 	public String info(ModelMap model,@PathVariable int id) {
 		Optional<Product> prod=prodrepo.findById(id);
-		model.put("product", prod);
+		model.put("product", prod.get());
 		return "productById";
 	}
 	
