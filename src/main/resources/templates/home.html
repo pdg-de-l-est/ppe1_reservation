@@ -1,0 +1,55 @@
+{{> header}}
+<template>
+  <v-card class="overflow-hidden">
+    <v-app-bar
+      absolute
+      color="fade"
+      dark
+      shrink-on-scroll
+      prominent
+      scroll-target="#scrolling-techniques"
+    >
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+      Les PDG de l'EST
+      <v-toolbar-title>
+      <v-btn color="primary" href="/prod">
+      liste des produits
+      </v-btn><br></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
+      <v-btn color="primary" href="/prodadd">
+      ajout de produits
+      </v-btn><br></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
+      <v-btn color="primary" href="/reserch">
+      Recherche de produits
+      </v-btn><br></v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-toolbar-title>
+	  <v-btn color="primary" href="/testMap2">
+      localisation
+      </v-btn><br></v-toolbar-title>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-heart</v-icon>
+      </v-btn>
+
+      <v-btn icon>
+        <v-icon>mdi-dots-vertical</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-sheet
+      id="scrolling-techniques"
+      class="overflow-y-auto"
+      max-height="920"
+    >
+      <v-container style="height: 1000px;"></v-container>
+    </v-sheet>
+  </v-card>
+</template>
+{{> footer}}
+{{{vue}}}

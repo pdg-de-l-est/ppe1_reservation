@@ -47,6 +47,11 @@ public class ProductController {
 		return new RedirectView("/prodadd");
 	}
 	
+	@RequestMapping("/home")
+	public String home(ModelMap model) {
+		return "home";
+	}
+	
 	@RequestMapping("/prodadd")
 	public String ajout(ModelMap model) {
 		return "newProduct";
