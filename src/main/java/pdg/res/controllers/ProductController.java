@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.view.RedirectView;
@@ -51,16 +52,6 @@ public class ProductController {
 		return "newProduct";
 	}
 	
-	@RequestMapping("/testMap")
-	public String testMap(ModelMap model) {
-		return "testMap";
-	}
-	
-	@RequestMapping("/testMap2")
-	public String testMap2(ModelMap model) {
-		return "testMap2";
-	}
-	
 	@RequestMapping("/prod")
 	public String liste(ModelMap model) {
 		List<Product> prod=prodrepo.findAll();
@@ -98,11 +89,25 @@ public class ProductController {
 	@DeleteMapping("/deleteProduct")
 	public RedirectView delProduct(@RequestParam String title) {
 		if(title!=null) {		
-			prodrepo.findByTitle(title);
+			Optional<Product> p=prodrepo.findByTitle(title);
+			prodrepo.delete(p);
 			prodrepo.flush();
 		}
 		return new RedirectView("/gestion");
 	}
 	
-	
+	@PutMapping("/updateProduct")
+	public RedirectView updateProd(@RequestParam int id) {
+		
+		Optional<Product> p = prodrepo.findById(id);
+		if( p.isPresent()) {
+			Product newP = p.get();
+			newP.setTitle(p.getId());
+			newP.setType(p.getType());
+			newP.setDescription(p.getDescription());
+			newP.setPrice(p.getPrice());
+			prodrepo.saveAndFlush(newP);
+		}
+		return new RedirectView("gestion");
+	}
 }

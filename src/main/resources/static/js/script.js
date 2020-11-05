@@ -19,6 +19,16 @@ window.onload=function(){
 	champVille.addEventListener("change", function(){
 		// On envoie la requête ajax vers Nominatim
 		ajaxGet(`https://nominatim.openstreetmap.org/search?q=${this.value}&format=json&addressdetails=1&limit=1&polygon_svg=1`)
+		.then(reponse => {
+			// On va convertir la réponse en objet JavaScript
+			let data = JSON.parse(reponse)
+			
+			// On stocke les coordonnées dans ville
+			ville = [data[0].lat,data[0].lon]
+			
+			// On centre la carte sur la ville
+			carte.setView(ville,11)
+		})
 	})
 	
 	champDistance.addEventListener("change", function(){
