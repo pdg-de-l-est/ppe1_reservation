@@ -90,23 +90,23 @@ public class ProductController {
 	public RedirectView delProduct(@RequestParam String title) {
 		if(title!=null) {		
 			Optional<Product> p=prodrepo.findByTitle(title);
-			prodrepo.delete(p);
+			prodrepo.delete(p.get());;
 			prodrepo.flush();
 		}
 		return new RedirectView("/gestion");
 	}
 	
 	@PutMapping("/updateProduct")
-	public RedirectView updateProd(@RequestParam int id) {
+	public RedirectView updateProd(@RequestParam int id,@RequestParam String title,@RequestParam String type,@RequestParam String description,@RequestParam int price) {
 		
-		Optional<Product> p = prodrepo.findById(id);
-		if( p.isPresent()) {
-			Product newP = p.get();
-			newP.setTitle(p.getId());
-			newP.setType(p.getType());
-			newP.setDescription(p.getDescription());
-			newP.setPrice(p.getPrice());
-			prodrepo.saveAndFlush(newP);
+		Optional<Product> promesseDeProduct = prodrepo.findById(id);
+		if( promesseDeProduct.isPresent()) {
+			
+			promesseDeProduct.get().setTitle(title);
+			promesseDeProduct.get().setType(type);
+			promesseDeProduct.get().setDescription(description);
+			promesseDeProduct.get().setPrice(price);
+			prodrepo.saveAndFlush(promesseDeProduct.get());
 		}
 		return new RedirectView("gestion");
 	}
