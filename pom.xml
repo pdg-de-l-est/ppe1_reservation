@@ -12,7 +12,7 @@
 	<groupId>pdg.res</groupId>
 	<artifactId>reservation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>reservation</name>
 	<description>reservation</description>
 
