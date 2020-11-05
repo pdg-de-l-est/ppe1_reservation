@@ -1,10 +1,12 @@
 # ppe1_reservation
 
-Installation 
+Framework: 
+
+SpringBoot
 
 Lier le repository de gitHub sur heroku
 
-Fonctionnalités
+
 
 Fonctionnalités :
 - Affichage d’une liste de produits et de leur information(Non connecté):
