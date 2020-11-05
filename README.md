@@ -6,7 +6,9 @@ SpringBoot
 
 Lier le repository de gitHub sur heroku
 
+Débuter
 
+Rentrer le chemin "/home" à la suite de l'adresse heroku
 
 Fonctionnalités :
 - Affichage d’une liste de produits et de leur information(Non connecté):
